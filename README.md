@@ -1,16 +1,19 @@
 # Sistema de Login
 
-Sistema de login desenvolvido em Python com foco no estudo de programação orientada a objetos, modularização, persistência de dados e segurança de senhas.
+Sistema de login desenvolvido em Python com foco no estudo de Programação Orientada a Objetos (POO), modularização, persistência de dados e segurança de senhas.
+
+O projeto permite o cadastro e autenticação de usuários utilizando armazenamento local em JSON e criptografia de senhas com bcrypt.
 
 ## Funcionalidades
 
 * Cadastro de usuários
-* Login de usuários
+* Autenticação de login
 * Listagem de usuários cadastrados
 * Validação de nome, e-mail e senha
 * Armazenamento de dados em arquivo JSON
 * Criptografia de senhas utilizando bcrypt
 * Interface textual utilizando Rich
+* Tratamento de exceções para leitura e gravação de arquivos
 
 ## Estrutura do Projeto
 
@@ -23,31 +26,33 @@ Sistema-login-python/
 ├── interface.py
 ├── requirements.txt
 ├── README.md
-└── .gitignore
+├── .gitignore
+└── usuarios.json (gerado automaticamente)
 ```
 
-### Arquivos
+## Descrição dos Arquivos
 
-#### main.py
+### main.py
 
 Ponto de entrada da aplicação.
 
 Responsável por criar a instância do sistema e iniciar sua execução.
 
-#### sistema.py
+### sistema.py
 
-Contém a classe `SistemaLogin`, responsável pela lógica principal do sistema:
+Contém a classe `SistemaLogin`, responsável por:
 
-* Cadastro
-* Login
+* Cadastro de usuários
+* Autenticação de login
 * Persistência dos dados
 * Verificação de e-mails existentes
+* Carregamento e salvamento dos usuários
 
-#### usuario.py
+### usuario.py
 
 Contém a classe `Usuario`, utilizada para representar cada usuário cadastrado.
 
-#### interface.py
+### interface.py
 
 Responsável pela interação com o usuário:
 
@@ -74,13 +79,13 @@ git clone <url-do-repositorio>
 Acesse a pasta do projeto:
 
 ```bash
-cd Sistema-Login
+cd Sistema-login-python
 ```
 
 Instale as dependências:
 
 ```bash
-pip install bcrypt rich
+pip install -r requirements.txt
 ```
 
 ## Como Executar
@@ -100,6 +105,14 @@ python main.py
 [4] Sair
 ```
 
+## Segurança
+
+As senhas dos usuários não são armazenadas em texto puro.
+
+Durante o cadastro, as senhas são criptografadas utilizando bcrypt antes de serem salvas no arquivo JSON.
+
+O arquivo `usuarios.json` é gerado automaticamente durante a execução do sistema e não deve ser versionado no GitHub.
+
 ## Conceitos Praticados
 
 Durante o desenvolvimento deste projeto foram praticados:
@@ -115,6 +128,6 @@ Durante o desenvolvimento deste projeto foram praticados:
 
 ## Autor
 
-Guilherme Freitas
+**Guilherme Freitas**
 
 Projeto desenvolvido para fins de estudo e aprendizado em Python.
