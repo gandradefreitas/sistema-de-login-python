@@ -1,0 +1,197 @@
+/* ==========================
+ESTILOS GERAIS DA PÁGINA
+========================== */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0c0b3c, #9266e1);
+    font-family: Arial, sans-serif;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ==========================
+CONTAINER PRINCIPAL
+========================== */
+
+.container {
+    width: 300px;
+    max-width: 100%;
+    padding: 30px;
+    background-color: rgb(73 69 172);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* ==========================
+CAMPOS DE ENTRADA
+========================== */
+
+input {
+
+    width: 80%;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    border: 1px solid #0e002c;
+
+    border-radius: 20px;
+
+    box-sizing: border-box;
+}
+
+/* ==========================
+BOTÕES
+========================== */
+
+button {
+
+    width: 60%;
+
+    padding: 12px;
+
+    margin-top: 15px;
+
+    border: 1px solid #874eec;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    color: white;
+
+    background-color: #0b0a2e;
+}
+
+button:hover {
+
+    opacity: 0.9;
+}
+
+/* ==========================
+ÁREA DE INFORMAÇÕES
+========================== */
+
+.info{
+
+    background: rgba(255,255,255,0.1);
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin: 15px 0;
+
+    max-width: 100%;
+}
+
+.info p {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================
+CAMPO DE SENHA
+========================== */
+
+.senha-container{
+
+    position: relative;
+
+    width: 80%;
+
+    margin: 10px auto;
+
+}
+
+.senha-container input{
+
+    width: 100%;
+
+    padding-right: 45px;
+
+    box-sizing: border-box;
+}
+
+#toggleSenha{
+
+    position: absolute;
+
+    right: 13px;
+
+    top: 65%;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    user-select: none;
+
+    font-size: 18px;
+}
+
+/* Messangens de erro */
+
+.erro-msg {
+    color: #ffb3b3;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+}
+
+.erro {
+    color: #ffb3b3;
+    font-weight: bold;
+}
+
+.notificacao {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    padding: 15px 20px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-weight: bold;
+
+    z-index: 1000;
+
+    animation: aparecer 0.3s ease;
+}
+
+.notificacao.erro {
+
+    background-color: #dc3545;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

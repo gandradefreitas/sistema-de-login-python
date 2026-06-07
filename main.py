@@ -1,21 +1,24 @@
 """
 Arquivo principal da aplicação.
 
-Responsável por criar a instância do sistema
-de 'login' e iniciar a execução do programa.
+Responsável por criar uma instância do sistema
+de login e iniciar a execução do programa.
 
 Funções:
-    main() -→ Inicializa o sistema e executa
-    o menu principal da aplicação.
+
+main(): Inicializa o sistema e executa o fluxo
+principal da aplicação.
 """
 
 from sistema import SistemaLogin
 
-
 def main():
     """
-    Cria uma instância do sistema de login
-    e inicia a execução da aplicação.
+    Inicializa o sistema de login e inicia
+    a execução da aplicação.
+
+    Cria uma instância da classe SistemaLogin
+    e executa o menu principal do sistema.
     """
 
     sistema = SistemaLogin()

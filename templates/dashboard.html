@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Painel</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <!-- Container principal do painel -->
+    <div class="container">
+
+        <!-- Ícone de perfil do usuário -->
+        <div class="avatar">
+            👤
+        </div>
+
+        <h1>Bem-vindo!</h1>
+
+        <p>Login realizado com sucesso!</p>
+
+        <h3>Informações da conta</h3>
+
+        <!-- Dados do usuário recebidos do Flask -->
+        <div class="info">
+            <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+            <p><strong>Email:</strong> {{ usuario.email }}</p>
+        </div>
+
+        <a href="/logout">
+            <button>Sair</button>
+        </a>
+
+        <p>Último acesso: {{ horario }}</p>
+
+    </div>
+
+</body>
+</html>

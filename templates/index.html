@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Sistema de login</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+
+    <!-- Container principal do formulário -->
+    <div class="container">
+
+        <!-- Formulário de cadastro -->
+        <form method="POST">
+
+            <input
+            name="nome"
+            placeholder="Nome"
+            required>
+
+            <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            required>
+
+            <div class="senha-container">
+
+                <input
+                id="senha"
+                name="senha"
+                type="password"
+                placeholder="Senha"
+                required>
+
+                <!-- Ícone para mostrar ou ocultar a senha -->
+                <i id="toggleSenha" class="bi bi-eye"></i>
+
+            </div>
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
+            <!-- Link para a página de login -->
+            <p>
+                Já possui uma conta?
+
+                <a href="/login">Faça login</a>
+
+            </p>
+
+        </form>
+
+    </div>
+ <!-- Arquivo JavaScript -->
+    <script
+    src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+</body>
+</html>

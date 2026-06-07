@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+
+    {% if erro %}
+        <div id="notificacao" class="notificacao erro">
+    {{ erro }}
+        </div>
+    {% endif %}
+
+    <!-- Container principal da página -->
+    <div class="container">
+
+        <!-- Formulário de autenticação -->
+        <form method="POST">
+
+            <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            required>
+            <div id="erroEmail" class="erro-msg"></div>
+
+            <div class="senha-container">
+                <input
+                id="senha"
+                name="senha"
+                type="password"
+                placeholder="Senha"
+                required>
+
+                <!-- Ícone para mostrar ou ocultar a senha -->
+                <i id="toggleSenha" class="bi bi-eye"></i>
+            </div>
+
+            <button type="submit">
+                Entrar
+            </button>
+
+            <!-- Link para a página de cadastro -->
+            <p>
+                Não possui uma conta?
+                <a href="/">Cadastre-se</a>
+            </p>
+        </form>
+    </div>
+
+ <!-- Arquivo JavaScript -->
+    <script
+    src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+ <!-- Mensagem de erro ao não encontrar os dados do usuário no login -->
+    <script>
+
+const notificacao = document.getElementById('notificacao');
+
+if (notificacao) {
+
+    setTimeout(() => {
+
+        notificacao.style.opacity = '0';
+
+        notificacao.style.transition = 'opacity 0.5s';
+
+        setTimeout(() => {
+            notificacao.remove();
+        }, 500);
+
+    }, 3000);
+
+}
+
+</script>
+
+</body>
+</html>

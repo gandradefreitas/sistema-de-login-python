@@ -114,6 +114,8 @@ class SistemaLogin:
         self.salvar_usuarios()
         return True
 
+
+
     def login_usuario(self, email, senha):
         """
         Realiza a autenticação de um usuário.
@@ -127,7 +129,6 @@ class SistemaLogin:
                 Objeto Usuario autenticado ou None caso
                 as credenciais sejam inválidas.
         """
-
         email = email.strip().lower()
 
         for usuario in self.registros:
@@ -138,8 +139,20 @@ class SistemaLogin:
                         senha.encode('utf-8'),
                         usuario.senha.encode('utf-8')
                 ):
-                    return usuario
-        return None
+                    return {
+                        "status": "sucesso",
+                        "usuario": usuario
+                    }
+                else:
+                    return {
+                        "status": "erro",
+                        "tipo": "senha_incorreta"
+                    }
+
+        return {
+            "status": "erro",
+            "tipo": "nao_encontrado"
+        }
 
     def carregar_usuarios(self):
         try:
