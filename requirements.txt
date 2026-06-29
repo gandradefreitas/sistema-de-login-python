@@ -1,2 +1,4 @@
 bcrypt
 rich
+Flask
+gunicorn
