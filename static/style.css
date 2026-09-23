@@ -1,44 +1,80 @@
 /* ==========================
-ESTILOS GERAIS DA PÁGINA
+   RESET E ESTILOS GERAIS
 ========================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
 
 body {
     margin: 0;
+
     min-height: 100vh;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #0c0b3c, #9266e1);
+
+    background: linear-gradient(
+        135deg,
+        #0c0b3c,
+        #9266e1
+    );
+
     font-family: Arial, sans-serif;
 
-    padding: 20px;
-    box-sizing: border-box;
+    /*
+    Espaçamento adaptável nas bordas.
+    */
+    padding: clamp(10px, 5vw, 20px);
 }
 
+
 /* ==========================
-CONTAINER PRINCIPAL
+   CONTAINER PRINCIPAL
 ========================== */
 
 .container {
-    width: 300px;
-    max-width: 100%;
-    padding: 30px;
+
+    /*
+    Ocupa o espaço disponível,
+    mas não ultrapassa 300px.
+    */
+    width: min(100%, 300px);
+
+    padding: clamp(20px, 6vw, 30px);
+
     background-color: rgb(73 69 172);
+
     border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.2);
+
     text-align: center;
 
-    box-sizing: border-box;
     overflow: hidden;
 }
 
+
 /* ==========================
-CAMPOS DE ENTRADA
+   CAMPOS DE ENTRADA
 ========================== */
 
 input {
 
-    width: 80%;
+    /*
+    Ocupa toda a largura disponível
+    dentro do container.
+    */
+    width: 100%;
 
     padding: 12px;
 
@@ -48,16 +84,31 @@ input {
 
     border-radius: 20px;
 
+    font-size: 16px;
+
+    font-family: inherit;
+
     box-sizing: border-box;
+
+    /*
+    Evita problemas com inputs
+    muito grandes em celulares.
+    */
+    min-width: 0;
 }
 
+
 /* ==========================
-BOTÕES
+   BOTÕES
 ========================== */
 
 button {
 
-    width: 60%;
+    /*
+    Em vez de uma largura fixa de 60%,
+    ocupa uma largura confortável.
+    */
+    width: min(100%, 220px);
 
     padding: 12px;
 
@@ -71,23 +122,37 @@ button {
 
     font-size: 16px;
 
+    font-family: inherit;
+
     color: white;
 
     background-color: #0b0a2e;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
 }
 
 button:hover {
-
     opacity: 0.9;
+
+    transform: scale(1.02);
 }
 
+button:active {
+    transform: scale(0.98);
+}
+
+
 /* ==========================
-ÁREA DE INFORMAÇÕES
+   ÁREA DE INFORMAÇÕES
 ========================== */
 
-.info{
+.info {
 
-    background: rgba(255,255,255,0.1);
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.1);
 
     padding: 15px;
 
@@ -95,44 +160,69 @@ button:hover {
 
     margin: 15px 0;
 
-    max-width: 100%;
+    /*
+    Impede que o conteúdo ultrapasse
+    o container.
+    */
+    overflow: hidden;
 }
 
 .info p {
+
+    margin: 8px 0;
+
+    /*
+    Quebra textos, e-mails ou
+    informações muito grandes.
+    */
     word-break: break-word;
+
     overflow-wrap: anywhere;
+
+    line-height: 1.4;
 }
 
+
 /* ==========================
-CAMPO DE SENHA
+   CAMPO DE SENHA
 ========================== */
 
-.senha-container{
+.senha-container {
 
     position: relative;
 
-    width: 80%;
+    /*
+    Ocupa toda a largura disponível.
+    */
+    width: 100%;
 
     margin: 10px auto;
-
 }
 
-.senha-container input{
+.senha-container input {
 
     width: 100%;
 
+    /*
+    Reserva espaço para o
+    botão de mostrar senha.
+    */
     padding-right: 45px;
 
     box-sizing: border-box;
 }
 
-#toggleSenha{
+#toggleSenha {
 
     position: absolute;
 
     right: 13px;
 
-    top: 65%;
+    /*
+    Centraliza verticalmente
+    o ícone dentro do input.
+    */
+    top: 50%;
 
     transform: translateY(-50%);
 
@@ -141,29 +231,64 @@ CAMPO DE SENHA
     user-select: none;
 
     font-size: 18px;
+
+    line-height: 1;
 }
 
-/* Messangens de erro */
+
+/* ==========================
+   MENSAGENS DE ERRO
+========================== */
 
 .erro-msg {
+
     color: #ffb3b3;
+
     font-size: 13px;
+
     margin-top: 5px;
+
     display: none;
+
+    /*
+    Permite que mensagens grandes
+    quebrem linha.
+    */
+    overflow-wrap: anywhere;
 }
 
 .erro {
+
     color: #ffb3b3;
+
     font-weight: bold;
 }
+
+
+/* ==========================
+   NOTIFICAÇÕES
+========================== */
 
 .notificacao {
 
     position: fixed;
 
-    top: 20px;
+    top: clamp(10px, 4vw, 20px);
 
-    right: 20px;
+    /*
+    Mantém a notificação dentro
+    da tela em celulares.
+    */
+    right: clamp(10px, 4vw, 20px);
+
+    /*
+    Limita a largura para não
+    causar overflow horizontal.
+    */
+    width: min(
+        calc(100% - 20px),
+        350px
+    );
 
     padding: 15px 20px;
 
@@ -175,6 +300,12 @@ CAMPO DE SENHA
 
     z-index: 1000;
 
+    /*
+    Garante que textos grandes
+    possam quebrar.
+    */
+    overflow-wrap: anywhere;
+
     animation: aparecer 0.3s ease;
 }
 
@@ -183,15 +314,124 @@ CAMPO DE SENHA
     background-color: #dc3545;
 }
 
+
+/* ==========================
+   ANIMAÇÃO
+========================== */
+
 @keyframes aparecer {
 
     from {
         opacity: 0;
+
         transform: translateX(30px);
     }
 
     to {
         opacity: 1;
+
         transform: translateX(0);
     }
 }
+
+
+/* ==========================
+   CELULARES
+========================== */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+
+        padding: 20px;
+
+        border-radius: 16px;
+    }
+
+    input {
+        padding: 11px;
+
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+
+        padding: 11px;
+    }
+
+    .info {
+        padding: 12px;
+    }
+
+    #toggleSenha {
+        right: 12px;
+    }
+}
+
+
+/* ==========================
+   CELULARES MUITO PEQUENOS
+========================== */
+
+@media (max-width: 320px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    .info {
+        padding: 10px;
+    }
+
+    .notificacao {
+        width: calc(100% - 16px);
+
+        right: 8px;
+    }
+}
+
+
+/* ==========================
+   TELAS BAIXAS
+========================== */
+
+@media (max-height: 550px) {
+
+    body {
+        align-items: flex-start;
+
+        overflow-y: auto;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+}
+
+
+/* ==========================
+   DISPOSITIVOS SEM HOVER
+========================== */
+
+@media (hover: none) {
+
+    button:hover {
+        transform: none;
+
+        opacity: 1;
+    }
+}
+
